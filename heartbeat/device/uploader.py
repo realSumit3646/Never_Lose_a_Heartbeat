@@ -22,6 +22,7 @@ from .store import DiskFull
 log = logging.getLogger("uploader")
 
 MIN_BATCH = 32 * 1024
+TARGET_REQUEST_S = 1.5  # size catch-up batches so one request takes about this long
 
 
 class Uploader:
@@ -33,7 +34,8 @@ class Uploader:
         # "starting" until the first probe: neither the cloud nor the device emits results
         # as offline just because the service restarted.
         self.mode = "starting"
-        self.budget = cfg.batch_bytes
+        self.budget = MIN_BATCH * 4
+        self.rate = None  # measured upload rate (raw sample bytes per second), from full batches
         self.last_ok = 0.0
         self.store.set_meta(mode="starting", mode_since=time.time(), mode_reason="service start")
 
@@ -87,7 +89,13 @@ class Uploader:
         except DiskFull:
             pass  # chunks are re-sent later; the cloud ignores what it already has
         self.last_ok = time.monotonic()
-        self.budget = min(self.cfg.batch_bytes, self.budget * 2)
+        if batch["full"] and took > 0:
+            # Catching up: fit the batch to the link, so that on a slow uplink (e.g. a
+            # mobile connection) a big request does not hit the timeout and look like
+            # an outage, and on a fast one the backlog clears quickly.
+            r = batch["bytes"] / took
+            self.rate = r if self.rate is None else 0.7 * self.rate + 0.3 * r
+            self.budget = int(min(self.cfg.batch_bytes, max(MIN_BATCH, self.rate * TARGET_REQUEST_S)))
         if not batch["full"]:
             self.stop.wait(self.cfg.upload_interval)
 

@@ -104,6 +104,13 @@ about this; an SD card with power-loss protection, or an SSD, is recommended.
   off from the cloud.
 * **Mock silent:** requests time out after 2 s. The device reconnects after
   20 s of silence.
+* **Disk full:** the failed transaction is rolled back. A 16 MB reserve file is
+  released, and the dropped range is recorded as `disk full`. Tested by filling
+  the data disk for 35 s: no crash, no silent loss.
+* **Slow or poor network:** catch-up batch size adapts to the measured upload
+  speed, about 1.5 s per request (32 KB to 1 MB of samples). A slow link
+  therefore does not look like an outage. The whole failure test also passed
+  over a 20 KB/s link.
 
 ## Evidence and resources
 
@@ -124,6 +131,13 @@ under QEMU emulation on an x86-64 laptop and uploaded to PythonAnywhere
 | 9.2 % of one core | 92 MB | 837 MB | 30.5 MB |
 
 All 2,880,000 samples were in the cloud at the end, with no loss records.
+Online results took 0.9 s median and 2.9 s p95 from data generation, with
+1.3 % over 5 s. The cloud did not answer within 4.5 s 64 times in the hour,
+so about a third of windows were processed offline. Server-side timing shows
+the cloud spends under 0.2 s per upload. The delays came from the test
+network, a mobile connection on a train, where uploads to a neutral server
+(httpbin.org) were equally slow. This is the situation the offline mode is
+for: no data was lost.
 The CPU figure includes emulation overhead, so a native Pi 4 should use less.
 The disk figure is dominated by one fsync'd transaction per 0.2 s read cycle
 (SQLite WAL frames and checkpoints). Setting `poll_interval = 0.5` roughly

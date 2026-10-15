@@ -65,6 +65,9 @@ python3 -m heartbeat.cloud.app --port 8080      # put HTTPS (e.g. Caddy) in fron
 ```sh
 python -m unittest discover -s tests            # section 3 vs reference, reply handling, mock protocol
 python tools/e2e_local.py --short               # full failure test on one machine (about 3 min)
+python tools/e2e_local.py --short --slow 20000  # the same over a 20 KB/s link
+python tools/docker_fault_test.py --env-file hb.env   # ARM64 container + real cloud (network cut,
+                                                 # kill -9, power cut, disk full)
 ```
 
 `tools/e2e_local.py` runs the cloud, a network-cut proxy, the mock (with

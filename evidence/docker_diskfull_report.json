@@ -1,0 +1,386 @@
+{
+  "sessions": {
+    "08110170": {
+      "device": {
+        "session": "08110170",
+        "generated_per_sensor": 60000,
+        "exported": 118240,
+        "listed_lost": 1760,
+        "silent_loss": 0,
+        "duplicates": 0,
+        "wrong_values": 0,
+        "invented": 0,
+        "contradicted": 0,
+        "ok": true
+      },
+      "cloud": {
+        "session": "08110170",
+        "generated_per_sensor": 60000,
+        "exported": 118240,
+        "listed_lost": 1760,
+        "silent_loss": 0,
+        "duplicates": 0,
+        "wrong_values": 0,
+        "invented": 0,
+        "contradicted": 0,
+        "ok": true
+      },
+      "results_by_mode": {
+        "online": 98,
+        "offline": 53
+      },
+      "results_mismatching_reference": 0,
+      "windows_without_result": [],
+      "loss_reasons": {
+        "disk full: sample could not be saved": 2,
+        "sensor_dropout": 19
+      }
+    }
+  },
+  "events": [
+    {
+      "time": "2026-10-15T14:31:18",
+      "wall": 1792074678.441,
+      "event": "service_start",
+      "detail": "pid 13"
+    },
+    {
+      "time": "2026-10-15T14:31:18",
+      "wall": 1792074678.982,
+      "event": "mock_connected",
+      "detail": "127.0.0.1:7100"
+    },
+    {
+      "time": "2026-10-15T14:31:19",
+      "wall": 1792074679.056,
+      "event": "session_switch",
+      "detail": "None -> 08110170"
+    },
+    {
+      "time": "2026-10-15T14:31:21",
+      "wall": 1792074681.197,
+      "event": "mode_online",
+      "detail": "cloud reachable"
+    },
+    {
+      "time": "2026-10-15T14:31:25",
+      "wall": 1792074685.169,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:31:25",
+      "wall": 1792074685.172,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:31:25",
+      "wall": 1792074685.723,
+      "event": "mode_offline",
+      "detail": "upload failed: The read operation timed out"
+    },
+    {
+      "time": "2026-10-15T14:31:32",
+      "wall": 1792074692.439,
+      "event": "mode_online",
+      "detail": "cloud reachable"
+    },
+    {
+      "time": "2026-10-15T14:31:36",
+      "wall": 1792074696.968,
+      "event": "mode_offline",
+      "detail": "upload failed: The read operation timed out"
+    },
+    {
+      "time": "2026-10-15T14:31:42",
+      "wall": 1792074702.214,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:31:44",
+      "wall": 1792074704.634,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:31:49",
+      "wall": 1792074709.121,
+      "event": "mode_online",
+      "detail": "cloud reachable"
+    },
+    {
+      "time": "2026-10-15T14:31:54",
+      "wall": 1792074714.581,
+      "event": "mode_offline",
+      "detail": "upload failed: The read operation timed out"
+    },
+    {
+      "time": "2026-10-15T14:31:58",
+      "wall": 1792074718.78,
+      "event": "mode_online",
+      "detail": "cloud reachable"
+    },
+    {
+      "time": "2026-10-15T14:32:03",
+      "wall": 1792074723.309,
+      "event": "mode_offline",
+      "detail": "upload failed: The read operation timed out"
+    },
+    {
+      "time": "2026-10-15T14:32:05",
+      "wall": 1792074725.791,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:05",
+      "wall": 1792074725.797,
+      "event": "mode_online",
+      "detail": "cloud reachable"
+    },
+    {
+      "time": "2026-10-15T14:32:08",
+      "wall": 1792074728.014,
+      "event": "disk_full",
+      "detail": "samples are being listed as lost"
+    },
+    {
+      "time": "2026-10-15T14:32:14",
+      "wall": 1792074734.504,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:19",
+      "wall": 1792074739.118,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:20",
+      "wall": 1792074740.113,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:24",
+      "wall": 1792074744.299,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:26",
+      "wall": 1792074746.122,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:35",
+      "wall": 1792074755.143,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:39",
+      "wall": 1792074759.557,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:42",
+      "wall": 1792074762.982,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:43",
+      "wall": 1792074763.185,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:45",
+      "wall": 1792074765.045,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:45",
+      "wall": 1792074765.863,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:47",
+      "wall": 1792074767.268,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:47",
+      "wall": 1792074767.468,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:48",
+      "wall": 1792074768.072,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:32:51",
+      "wall": 1792074771.077,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:33:01",
+      "wall": 1792074781.426,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:33:02",
+      "wall": 1792074782.25,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:33:15",
+      "wall": 1792074795.283,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:33:23",
+      "wall": 1792074803.347,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:33:28",
+      "wall": 1792074808.382,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:33:30",
+      "wall": 1792074810.791,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:33:31",
+      "wall": 1792074811.797,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:33:31",
+      "wall": 1792074811.993,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:33:32",
+      "wall": 1792074812.2,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:33:38",
+      "wall": 1792074818.42,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:33:38",
+      "wall": 1792074818.624,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:33:39",
+      "wall": 1792074819.423,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:33:47",
+      "wall": 1792074827.492,
+      "event": "mode_offline",
+      "detail": "upload failed: The read operation timed out"
+    },
+    {
+      "time": "2026-10-15T14:33:49",
+      "wall": 1792074829.159,
+      "event": "mode_online",
+      "detail": "cloud reachable"
+    },
+    {
+      "time": "2026-10-15T14:33:51",
+      "wall": 1792074831.295,
+      "event": "session_end",
+      "detail": "08110170 sensor 1 at 60000"
+    },
+    {
+      "time": "2026-10-15T14:33:51",
+      "wall": 1792074831.295,
+      "event": "session_end",
+      "detail": "08110170 sensor 2 at 60000"
+    },
+    {
+      "time": "2026-10-15T14:34:04",
+      "wall": 1792074844.352,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:34:23",
+      "wall": 1792074863.412,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    },
+    {
+      "time": "2026-10-15T14:35:03",
+      "wall": 1792074903.346,
+      "event": "corrupt_reply",
+      "detail": "crc32 mismatch or malformed data"
+    }
+  ],
+  "timeline": [
+    {
+      "t": 1.4,
+      "wall": 1792074675.793,
+      "event": "container_started"
+    },
+    {
+      "t": 40.8,
+      "wall": 1792074715.126,
+      "event": "disk_filled"
+    },
+    {
+      "t": 75.5,
+      "wall": 1792074749.829,
+      "event": "disk_freed"
+    },
+    {
+      "t": 175.4,
+      "wall": 1792074849.801,
+      "event": "drained",
+      "status": {
+        "mode": "online",
+        "session": "08110170",
+        "samples_saved": 118240,
+        "samples_in_cloud": 118240,
+        "backlog": 0,
+        "loss_records": 21,
+        "service": "running",
+        "mode_since": 1792074829.158082
+      }
+    }
+  ]
+}

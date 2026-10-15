@@ -11,6 +11,8 @@ Invariant per session and sensor: every index below `cursor` is either in
 from __future__ import annotations
 
 import json
+import os
+import shutil
 import sqlite3
 import time
 from contextlib import contextmanager
@@ -83,8 +85,20 @@ class DiskFull(Exception):
     pass
 
 
-def is_disk_full(e: Exception) -> bool:
-    return isinstance(e, sqlite3.OperationalError) and "full" in str(e).lower()
+def is_disk_full(e: Exception, path: str = None) -> bool:
+    """SQLite reports a full disk as "database or disk is full", but when the WAL
+    cannot grow it may say "disk I/O error"; treat that as full if space is gone."""
+    if not isinstance(e, sqlite3.OperationalError):
+        return False
+    msg = str(e).lower()
+    if "full" in msg:
+        return True
+    if "i/o error" in msg and path:
+        try:
+            return shutil.disk_usage(os.path.dirname(os.path.abspath(path))).free < 1024 * 1024
+        except OSError:
+            return False
+    return False
 
 
 class Store:
@@ -107,8 +121,11 @@ class Store:
             yield c
             c.execute("COMMIT")
         except BaseException as e:
-            c.execute("ROLLBACK")
-            if is_disk_full(e):
+            try:
+                c.execute("ROLLBACK")
+            except sqlite3.Error:
+                pass  # SQLite already rolled back (it does so itself on a full disk)
+            if is_disk_full(e, self.path):
                 raise DiskFull(str(e)) from e
             raise
 

@@ -22,7 +22,8 @@ class Config:
     upload_interval: float = 0.3     # seconds between uploads when not catching up
     request_timeout: float = 4.5     # one upload request
     probe_timeout: float = 3.5       # connectivity probe (a fresh TLS handshake can take seconds)
-    batch_bytes: int = 256 * 1024    # raw sample bytes per upload request (about 30 s of data)
+    batch_bytes: int = 1024 * 1024   # largest upload request (raw sample bytes, ~2 min of data);
+                                     # the actual size adapts to the measured uplink speed
     tls_ignore_clock: bool = True    # keep TLS working if the clock is changed
     reserve_mb: int = 16             # disk kept free to record losses when the disk fills
 

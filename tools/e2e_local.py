@@ -35,9 +35,10 @@ CLOUD, PROXY, MOCK = 18080, 18081, 17100
 
 
 class Run:
-    def __init__(self, workdir: Path, short: bool):
+    def __init__(self, workdir: Path, short: bool, slow: int = 0):
         self.w = workdir
         self.short = short
+        self.link = f"slow:{slow}" if slow else "pass"  # network state when not cut
         self.t0 = time.monotonic()
         self.procs = {}
         self.timeline = []
@@ -100,7 +101,7 @@ class Run:
 
     def main(self):
         self.w.mkdir(parents=True, exist_ok=True)
-        self.netmode("pass")
+        self.netmode(self.link)
         self.start("cloud", ["-m", "heartbeat.cloud.app", "--port", str(CLOUD), "--host", "127.0.0.1"])
         self.start("proxy", ["tools/netcut_proxy.py", "--listen", str(PROXY), "--target",
                              f"127.0.0.1:{CLOUD}", "--mode-file", str(self.w / "netmode.txt")])
@@ -116,7 +117,7 @@ class Run:
         report["offline_after_s"] = self.wait_mode("offline", 20)
         self.note("mode_offline", after_s=report["offline_after_s"])
         self.sleep_until(45)
-        self.netmode("pass")
+        self.netmode(self.link)
         self.note("network_restored")
         report["online_after_s"] = self.wait_mode("online", 20)
         self.note("mode_online", after_s=report["online_after_s"])
@@ -183,8 +184,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--workdir", default="e2e_run")
     ap.add_argument("--short", action="store_true")
+    ap.add_argument("--slow", type=int, default=0, help="limit the link to N bytes/s (poor mobile network)")
     a = ap.parse_args()
-    run = Run(Path(a.workdir).resolve(), a.short)
+    run = Run(Path(a.workdir).resolve(), a.short, a.slow)
     try:
         run.main()
     finally:

@@ -4,6 +4,7 @@
 
 The mode file holds one word, re-read every 0.2 s:
   pass       forward traffic normally
+  slow:N     forward at most N bytes per second (a poor mobile link)
   blackhole  stop forwarding (like Wi-Fi dropping: the client sees timeouts)
 On the real device, cut the network instead (see deploy/fault_tests.sh).
 """
@@ -30,10 +31,14 @@ class Proxy:
                 m = "pass"
             if m != self.mode:
                 print(f"[proxy] {self.mode} -> {m}", flush=True)
-                if m != "pass":
+                if not self.passing(m):
                     self.generation += 1
                 self.mode = m
             time.sleep(0.2)
+
+    @staticmethod
+    def passing(mode):
+        return mode == "pass" or mode.startswith("slow:")
 
     def pipe(self, src, dst, gen, done):
         """Copy src -> dst. On EOF half-close dst; close both once both directions end."""
@@ -43,11 +48,13 @@ class Proxy:
                 data = src.recv(65536)
                 if not data:
                     break
-                while self.mode != "pass" and gen == self.generation:
+                while not self.passing(self.mode) and gen == self.generation:
                     time.sleep(0.1)  # hold traffic: the peer sees a stall
                 if gen != self.generation:
                     cut = True  # a cut happened while this connection was open
                     break
+                if self.mode.startswith("slow:"):
+                    time.sleep(len(data) / max(1, int(self.mode[5:])))
                 dst.sendall(data)
             if not cut:
                 dst.shutdown(socket.SHUT_WR)
@@ -65,7 +72,7 @@ class Proxy:
 
     def handle(self, client):
         gen = self.generation
-        while self.mode != "pass":
+        while not self.passing(self.mode):
             time.sleep(0.1)  # accepted but silent, like a dead network
             if gen != self.generation:
                 gen = self.generation
