@@ -1,0 +1,21 @@
+[pipeline]
+# Mock service on the board
+mock_host = 127.0.0.1
+mock_port = 7100
+
+# Where samples are kept (must be on the board's persistent disk)
+data_dir = /var/lib/heartbeat
+
+# Cloud service (see README "Cloud deployment")
+cloud_url = https://YOUR-CLOUD-HOST
+api_key = CHANGE-ME
+device_id = pi-1
+
+# Timing (seconds). Defaults meet the 10 s switch and 5 s result limits.
+poll_interval = 0.2
+request_timeout = 4.5
+probe_timeout = 3.5
+upload_interval = 0.3
+
+# Keep TLS working when the system clock is changed (chain + hostname still verified)
+tls_ignore_clock = true

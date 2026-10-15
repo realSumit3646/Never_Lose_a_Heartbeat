@@ -1,0 +1,28 @@
+{
+  "session": "9c2703b1",
+  "environment": "docker linux/arm64 (QEMU) --cpus 4 --memory 2g; cloud PythonAnywhere free tier",
+  "resources": {
+    "duration_s": 3603,
+    "cpus": 16,
+    "avg_cpu_percent_of_one_core": 9.23,
+    "peak_memory_mb": 92.1,
+    "disk_written_mb": 837.1,
+    "network_sent_mb": 30.52,
+    "interface": "eth0"
+  },
+  "samples_per_sensor": 1440000,
+  "device_check_ground_truth": "ok: silent_loss 0, duplicates 0, wrong_values 0",
+  "cloud_copy": "identical to device export (sha256 4cad1997...)",
+  "windows_with_result": 3600,
+  "results_online": 2440,
+  "results_offline": 1173,
+  "online_latency_s_from_data_generation": {
+    "median": 0.93,
+    "p90": 1.98,
+    "p95": 2.85,
+    "over_5s_percent": 1.3
+  },
+  "offline_switches": 64,
+  "note": "Docker VM monotonic clock drifted 11.5 s behind wall time over the hour; latency is measured from when the mock generated the data.",
+  "cloud_check_ground_truth": "ok: silent_loss 0, duplicates 0, wrong_values 0"
+}

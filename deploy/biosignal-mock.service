@@ -1,0 +1,15 @@
+[Unit]
+Description=biosignal-mock - two-sensor mock service (section 6 of the brief)
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+WorkingDirectory=/var/lib/biosignal-mock
+# Ground truth for check_ground_truth goes to /var/lib/biosignal-mock/mock_truth.jsonl.
+# Add fault options as needed, e.g. --fault-rate 0.02 --pause-every 60 --dropout-every 90.
+ExecStart=/usr/local/bin/biosignal-mock --mode signal --seed 7 --duration 3600 --port 7100
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target

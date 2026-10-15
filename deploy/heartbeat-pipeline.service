@@ -1,0 +1,15 @@
+[Unit]
+Description=Never Lose a Heartbeat - device pipeline
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Environment=HEARTBEAT_CONFIG=/etc/heartbeat/pipeline.ini
+ExecStart=/usr/local/bin/pipeline run
+Restart=always
+RestartSec=1
+# Give in-flight transactions time to finish on a normal stop.
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

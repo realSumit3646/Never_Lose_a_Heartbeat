@@ -1,0 +1,134 @@
+{
+  "timeline": [
+    {
+      "t": 1.0,
+      "event": "started"
+    },
+    {
+      "t": 20.1,
+      "event": "network_cut"
+    },
+    {
+      "t": 26.7,
+      "event": "mode_offline",
+      "after_s": 6.7
+    },
+    {
+      "t": 45.0,
+      "event": "network_restored"
+    },
+    {
+      "t": 45.8,
+      "event": "mode_online",
+      "after_s": 0.8
+    },
+    {
+      "t": 60.0,
+      "event": "pipeline_killed"
+    },
+    {
+      "t": 62.0,
+      "event": "pipeline_restarted"
+    },
+    {
+      "t": 80.1,
+      "event": "mock_killed"
+    },
+    {
+      "t": 81.1,
+      "event": "mock_restarted"
+    },
+    {
+      "t": 118.9,
+      "event": "drained",
+      "status": {
+        "mode": "online",
+        "session": "a4bc11b9",
+        "samples_saved": 86233,
+        "samples_in_cloud": 86233,
+        "backlog": 0,
+        "loss_records": 13,
+        "service": "running",
+        "mode_since": 1792062641.5079305
+      }
+    }
+  ],
+  "offline_after_s": 6.7,
+  "online_after_s": 0.8,
+  "sessions": {
+    "110e3849": {
+      "device": {
+        "session": "110e3849",
+        "generated_per_sensor": 31705,
+        "exported": 62233,
+        "listed_lost": 1600,
+        "silent_loss": 0,
+        "duplicates": 0,
+        "wrong_values": 0,
+        "invented": 0,
+        "contradicted": 0,
+        "ok": true
+      },
+      "cloud": {
+        "session": "110e3849",
+        "generated_per_sensor": 31705,
+        "exported": 62233,
+        "listed_lost": 1600,
+        "silent_loss": 0,
+        "duplicates": 0,
+        "wrong_values": 0,
+        "invented": 0,
+        "contradicted": 0,
+        "ok": true
+      },
+      "results_by_mode": {
+        "online": 55,
+        "offline": 25
+      },
+      "results_mismatching_reference": 0,
+      "windows_without_result": [],
+      "online_latency_s": {
+        "median": 0.59,
+        "p95": 2.27,
+        "over_5s": 0
+      }
+    },
+    "a4bc11b9": {
+      "device": {
+        "session": "a4bc11b9",
+        "generated_per_sensor": 12000,
+        "exported": 24000,
+        "listed_lost": 0,
+        "silent_loss": 0,
+        "duplicates": 0,
+        "wrong_values": 0,
+        "invented": 0,
+        "contradicted": 0,
+        "ok": true
+      },
+      "cloud": {
+        "session": "a4bc11b9",
+        "generated_per_sensor": 12000,
+        "exported": 24000,
+        "listed_lost": 0,
+        "silent_loss": 0,
+        "duplicates": 0,
+        "wrong_values": 0,
+        "invented": 0,
+        "contradicted": 0,
+        "ok": true
+      },
+      "results_by_mode": {
+        "online": 30,
+        "offline": 0
+      },
+      "results_mismatching_reference": 0,
+      "windows_without_result": [],
+      "online_latency_s": {
+        "median": 0.6,
+        "p95": 2.24,
+        "over_5s": 0
+      }
+    }
+  }
+}

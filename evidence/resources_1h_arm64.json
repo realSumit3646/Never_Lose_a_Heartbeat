@@ -1,0 +1,9 @@
+{
+  "duration_s": 3603,
+  "cpus": 16,
+  "avg_cpu_percent_of_one_core": 9.23,
+  "peak_memory_mb": 92.1,
+  "disk_written_mb": 837.1,
+  "network_sent_mb": 30.52,
+  "interface": "eth0"
+}
