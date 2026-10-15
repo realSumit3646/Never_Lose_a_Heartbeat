@@ -68,6 +68,7 @@ python tools/e2e_local.py --short               # full failure test on one machi
 python tools/e2e_local.py --short --slow 20000  # the same over a 20 KB/s link
 python tools/docker_fault_test.py --env-file hb.env   # ARM64 container + real cloud (network cut,
                                                  # kill -9, power cut, disk full)
+python tools/demo.py --env-file hb.env            # narrated 4-minute demo (video)
 ```
 
 `tools/e2e_local.py` runs the cloud, a network-cut proxy, the mock (with
