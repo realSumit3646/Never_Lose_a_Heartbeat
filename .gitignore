@@ -6,3 +6,4 @@ __pycache__/
 mock_truth.jsonl
 e2e_run/
 pipeline.ini
+demo_cloud.db*
