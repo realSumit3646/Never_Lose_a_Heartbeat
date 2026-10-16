@@ -1,5 +1,10 @@
 # Never Lose a Heartbeat
 
+**Demo video (4.5 min, captions, no audio):** [docs/demo_video.mp4](docs/demo_video.mp4).
+It shows a network cut, a process kill and a power cut on the ARM64 device against the real cloud,
+then checks every sample against the mock's ground truth. It was rendered from the recorded
+terminal output of `tools/demo.py` (`evidence/demo_run_terminal.jsonl`) with `tools/render_cast.py`.
+
 A device-to-cloud pipeline for a two-sensor bedside device. It saves every
 sample on the device and survives crashes, reboots and power cuts. It streams
 to a free cloud service and processes the data there when the network is up,

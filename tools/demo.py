@@ -146,8 +146,13 @@ def main():
     ap.add_argument("--env-file", required=True)
     ap.add_argument("--local-cloud", action="store_true",
                     help="run the cloud service on this machine instead of the real one")
+    ap.add_argument("--ca-bundle", help="extra CA bundle for the container (e.g. when an antivirus "
+                                        "re-signs HTTPS traffic on this laptop)")
     a = ap.parse_args()
     extra_env, cloud_proc = [], None
+    if a.ca_bundle:
+        extra_env += ["-v", f"{os.path.abspath(a.ca_bundle)}:/certs/bundle.pem:ro",
+                      "-e", "SSL_CERT_FILE=/certs/bundle.pem"]
     cloud_desc = "PythonAnywhere (free tier) over the internet"
     if a.local_cloud:
         db = ROOT / "demo_cloud.db"
@@ -157,8 +162,8 @@ def main():
         env = dict(os.environ, PYTHONPATH=str(ROOT), HEARTBEAT_CLOUD_DB=str(db), HEARTBEAT_API_KEY="demo-key")
         cloud_proc = subprocess.Popen([sys.executable, "-m", "heartbeat.cloud.app", "--port", "18080"],
                                       cwd=ROOT, env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        extra_env = ["-e", "HEARTBEAT_CLOUD_URL=http://host.docker.internal:18080",
-                     "-e", "HEARTBEAT_API_KEY=demo-key"]
+        extra_env += ["-e", "HEARTBEAT_CLOUD_URL=http://host.docker.internal:18080",
+                      "-e", "HEARTBEAT_API_KEY=demo-key"]
         cloud_desc = "the same cloud service, run on this laptop (recorded on a train without internet)"
         time.sleep(2)
     try:

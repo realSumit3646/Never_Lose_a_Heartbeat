@@ -1,0 +1,190 @@
+{"t": 0.109, "line": ""}
+{"t": 0.109, "line": "=============================================================================="}
+{"t": 0.109, "line": "  NEVER LOSE A HEARTBEAT - failure demo (MayaCardio Software Systems Engineer case)"}
+{"t": 0.109, "line": "  Device: ARM64 Raspberry Pi-class container (4 CPUs, 2 GB): biosignal-mock + pipeline"}
+{"t": 0.109, "line": "  Cloud:  PythonAnywhere (free tier) over the internet"}
+{"t": 0.109, "line": "  Shown:  network cut, process kill (kill -9), power cut, then every sample is verified"}
+{"t": 0.109, "line": "  Each line below is `pipeline status`, printed once per second"}
+{"t": 0.109, "line": "=============================================================================="}
+{"t": 8.369, "line": ""}
+{"t": 8.369, "line": "=============================================================================="}
+{"t": 8.369, "line": "  1. Start the ARM64 device (Raspberry Pi limits: 4 CPUs, 2 GB) with mock + pipeline"}
+{"t": 8.369, "line": "=============================================================================="}
+{"t": 11.967, "line": "  CPU architecture inside the device: aarch64"}
+{"t": 14.439, "line": "  t=   2.5s  (device restarting...)"}
+{"t": 16.344, "line": "  t=   4.4s  mode=online   session=a4b08aac  saved=   2156  in_cloud=      0  backlog= 2156  loss_records=0"}
+{"t": 18.301, "line": "  t=   6.3s  mode=online   session=a4b08aac  saved=   3598  in_cloud=   2957  backlog=  641  loss_records=0"}
+{"t": 20.355, "line": "  t=   8.4s  mode=online   session=a4b08aac  saved=   4967  in_cloud=   4721  backlog=  246  loss_records=0"}
+{"t": 22.317, "line": "  t=  10.3s  mode=online   session=a4b08aac  saved=   6402  in_cloud=   6082  backlog=  320  loss_records=0"}
+{"t": 24.227, "line": "  t=  12.3s  mode=online   session=a4b08aac  saved=   7844  in_cloud=   7203  backlog=  641  loss_records=0"}
+{"t": 26.158, "line": "  t=  14.2s  mode=online   session=a4b08aac  saved=   9287  in_cloud=   8806  backlog=  481  loss_records=0"}
+{"t": 27.159, "line": ""}
+{"t": 27.159, "line": "=============================================================================="}
+{"t": 27.159, "line": "  2. NETWORK CUT: device disconnected. Expect mode=offline within 10 s; saving continues"}
+{"t": 27.159, "line": "=============================================================================="}
+{"t": 31.281, "line": "  t=  19.3s  mode=online   session=a4b08aac  saved=  13136  in_cloud=  11854  backlog= 1282  loss_records=0"}
+{"t": 33.17, "line": "  t=  21.2s  mode=online   session=a4b08aac  saved=  14580  in_cloud=  11854  backlog= 2726  loss_records=0"}
+{"t": 35.058, "line": "  t=  23.1s  mode=online   session=a4b08aac  saved=  15860  in_cloud=  11854  backlog= 4006  loss_records=0"}
+{"t": 37.139, "line": "  t=  25.2s  mode=offline  session=a4b08aac  saved=  17462  in_cloud=  11854  backlog= 5608  loss_records=0"}
+{"t": 39.104, "line": "  t=  27.1s  mode=offline  session=a4b08aac  saved=  18906  in_cloud=  11854  backlog= 7052  loss_records=0"}
+{"t": 41.092, "line": "  t=  29.1s  mode=offline  session=a4b08aac  saved=  20347  in_cloud=  11854  backlog= 8493  loss_records=0"}
+{"t": 43.019, "line": "  t=  31.1s  mode=offline  session=a4b08aac  saved=  21791  in_cloud=  11854  backlog= 9937  loss_records=0"}
+{"t": 44.934, "line": "  t=  33.0s  mode=offline  session=a4b08aac  saved=  23231  in_cloud=  11854  backlog=11377  loss_records=0"}
+{"t": 46.845, "line": "  t=  34.9s  mode=offline  session=a4b08aac  saved=  24674  in_cloud=  11854  backlog=12820  loss_records=0"}
+{"t": 48.76, "line": "  t=  36.8s  mode=offline  session=a4b08aac  saved=  26115  in_cloud=  11854  backlog=14261  loss_records=0"}
+{"t": 50.699, "line": "  t=  38.7s  mode=offline  session=a4b08aac  saved=  27557  in_cloud=  11854  backlog=15703  loss_records=0"}
+{"t": 52.628, "line": "  t=  40.7s  mode=offline  session=a4b08aac  saved=  29001  in_cloud=  11854  backlog=17147  loss_records=0"}
+{"t": 54.547, "line": "  t=  42.6s  mode=offline  session=a4b08aac  saved=  30440  in_cloud=  11854  backlog=18586  loss_records=0"}
+{"t": 55.547, "line": ""}
+{"t": 55.547, "line": "=============================================================================="}
+{"t": 55.547, "line": "  3. NETWORK BACK: expect mode=online within 10 s, then the backlog drains to 0"}
+{"t": 55.547, "line": "=============================================================================="}
+{"t": 59.627, "line": "  t=  47.7s  mode=offline  session=a4b08aac  saved=  34211  in_cloud=  11854  backlog=22357  loss_records=0"}
+{"t": 61.539, "line": "  t=  49.6s  mode=online   session=a4b08aac  saved=  35653  in_cloud=  18424  backlog=17229  loss_records=0"}
+{"t": 63.472, "line": "  t=  51.5s  mode=online   session=a4b08aac  saved=  37016  in_cloud=  36533  backlog=  483  loss_records=0"}
+{"t": 65.368, "line": "  t=  53.4s  mode=online   session=a4b08aac  saved=  38456  in_cloud=  37655  backlog=  801  loss_records=0"}
+{"t": 67.27, "line": "  t=  55.3s  mode=online   session=a4b08aac  saved=  39898  in_cloud=  39257  backlog=  641  loss_records=0"}
+{"t": 69.166, "line": "  t=  57.2s  mode=online   session=a4b08aac  saved=  41179  in_cloud=  40379  backlog=  800  loss_records=0"}
+{"t": 71.058, "line": "  t=  59.1s  mode=online   session=a4b08aac  saved=  42623  in_cloud=  41981  backlog=  642  loss_records=0"}
+{"t": 72.983, "line": "  t=  61.0s  mode=online   session=a4b08aac  saved=  44064  in_cloud=  43583  backlog=  481  loss_records=0"}
+{"t": 74.891, "line": "  t=  62.9s  mode=online   session=a4b08aac  saved=  45508  in_cloud=  44865  backlog=  643  loss_records=0"}
+{"t": 76.784, "line": "  t=  64.8s  mode=online   session=a4b08aac  saved=  47111  in_cloud=  46469  backlog=  642  loss_records=0"}
+{"t": 78.652, "line": "  t=  66.7s  mode=online   session=a4b08aac  saved=  48391  in_cloud=  47511  backlog=  880  loss_records=0"}
+{"t": 80.572, "line": "  t=  68.6s  mode=online   session=a4b08aac  saved=  49835  in_cloud=  49193  backlog=  642  loss_records=0"}
+{"t": 82.518, "line": "  t=  70.6s  mode=online   session=a4b08aac  saved=  51275  in_cloud=  50717  backlog=  558  loss_records=0"}
+{"t": 84.41, "line": "  t=  72.4s  mode=online   session=a4b08aac  saved=  52801  in_cloud=  51999  backlog=  802  loss_records=0"}
+{"t": 85.411, "line": ""}
+{"t": 85.411, "line": "=============================================================================="}
+{"t": 85.411, "line": "  4. PROCESS KILL: kill -9 the pipeline. It restarts and continues from disk; nothing lost"}
+{"t": 85.411, "line": "=============================================================================="}
+{"t": 89.524, "line": "  t=  77.6s  mode=online   session=a4b08aac  saved=  56008  in_cloud=  55206  backlog=  802  loss_records=0"}
+{"t": 91.49, "line": "  t=  79.5s  mode=starting session=a4b08aac  saved=  56008  in_cloud=  55206  backlog=  802  loss_records=0"}
+{"t": 93.386, "line": "  t=  81.4s  mode=online   session=a4b08aac  saved=  59489  in_cloud=  58687  backlog=  802  loss_records=0"}
+{"t": 95.275, "line": "  t=  83.3s  mode=online   session=a4b08aac  saved=  60771  in_cloud=  60131  backlog=  640  loss_records=0"}
+{"t": 97.167, "line": "  t=  85.2s  mode=online   session=a4b08aac  saved=  62212  in_cloud=  61652  backlog=  560  loss_records=0"}
+{"t": 99.065, "line": "  t=  87.1s  mode=online   session=a4b08aac  saved=  63655  in_cloud=  63174  backlog=  481  loss_records=0"}
+{"t": 100.999, "line": "  t=  89.0s  mode=online   session=a4b08aac  saved=  65019  in_cloud=  64296  backlog=  723  loss_records=0"}
+{"t": 102.961, "line": "  t=  91.0s  mode=online   session=a4b08aac  saved=  66458  in_cloud=  64616  backlog= 1842  loss_records=0"}
+{"t": 103.961, "line": ""}
+{"t": 103.961, "line": "=============================================================================="}
+{"t": 103.961, "line": "  5. POWER CUT: the whole device is killed at once, then powered on again."}
+{"t": 103.961, "line": "  The mock restarts too (new session); the old session's unread tail is listed as lost"}
+{"t": 103.961, "line": "=============================================================================="}
+{"t": 110.488, "line": "  t=  98.5s  mode=online   session=a4b08aac  saved=  69502  in_cloud=  68541  backlog=  961  loss_records=0"}
+{"t": 112.354, "line": "  t= 100.4s  mode=starting session=052f1a34  saved=  71078  in_cloud=  68541  backlog= 2537  loss_records=2"}
+{"t": 114.269, "line": "  t= 102.3s  mode=online   session=052f1a34  saved=  72524  in_cloud=  72203  backlog=  321  loss_records=2"}
+{"t": 116.183, "line": "  t= 104.2s  mode=online   session=052f1a34  saved=  73885  in_cloud=  73325  backlog=  560  loss_records=2"}
+{"t": 118.058, "line": "  t= 106.1s  mode=online   session=052f1a34  saved=  75330  in_cloud=  74846  backlog=  484  loss_records=2"}
+{"t": 119.996, "line": "  t= 108.0s  mode=online   session=052f1a34  saved=  76774  in_cloud=  76289  backlog=  485  loss_records=2"}
+{"t": 121.901, "line": "  t= 109.9s  mode=online   session=052f1a34  saved=  78054  in_cloud=  77413  backlog=  641  loss_records=2"}
+{"t": 123.81, "line": "  t= 111.8s  mode=online   session=052f1a34  saved=  79496  in_cloud=  79015  backlog=  481  loss_records=2"}
+{"t": 125.729, "line": "  t= 113.8s  mode=online   session=052f1a34  saved=  80940  in_cloud=  80139  backlog=  801  loss_records=2"}
+{"t": 127.595, "line": "  t= 115.6s  mode=online   session=052f1a34  saved=  82380  in_cloud=  81741  backlog=  639  loss_records=2"}
+{"t": 129.482, "line": "  t= 117.5s  mode=online   session=052f1a34  saved=  83662  in_cloud=  83343  backlog=  319  loss_records=2"}
+{"t": 130.482, "line": ""}
+{"t": 130.482, "line": "=============================================================================="}
+{"t": 130.482, "line": "  6. Events recorded by the device (evidence)"}
+{"t": 130.482, "line": "=============================================================================="}
+{"t": 134.389, "line": "  2026-10-16T00:28:04  service_start    pid 13"}
+{"t": 134.389, "line": "  2026-10-16T00:28:05  mock_connected   127.0.0.1:7100"}
+{"t": 134.389, "line": "  2026-10-16T00:28:05  session_switch   None -> a4b08aac"}
+{"t": 134.389, "line": "  2026-10-16T00:28:06  mode_online      cloud reachable"}
+{"t": 134.389, "line": "  2026-10-16T00:28:26  mode_offline     upload failed: The read operation timed out"}
+{"t": 134.389, "line": "  2026-10-16T00:28:49  mode_online      cloud reachable"}
+{"t": 134.389, "line": "  2026-10-16T00:29:19  service_start    pid 321"}
+{"t": 134.389, "line": "  2026-10-16T00:29:20  mock_connected   127.0.0.1:7100"}
+{"t": 134.389, "line": "  2026-10-16T00:29:21  mode_online      cloud reachable"}
+{"t": 134.389, "line": "  2026-10-16T00:29:40  service_start    pid 13"}
+{"t": 134.389, "line": "  2026-10-16T00:29:41  mock_connected   127.0.0.1:7100"}
+{"t": 134.389, "line": "  2026-10-16T00:29:41  session_switch   a4b08aac -> 052f1a34"}
+{"t": 134.389, "line": "  2026-10-16T00:29:42  mode_online      cloud reachable"}
+{"t": 140.39, "line": ""}
+{"t": 140.39, "line": "=============================================================================="}
+{"t": 140.39, "line": "  7. Waiting for the second session to end and the backlog to reach 0"}
+{"t": 140.39, "line": "=============================================================================="}
+{"t": 144.329, "line": "  t= 132.4s  mode=online   session=052f1a34  saved=  94720  in_cloud=  94079  backlog=  641  loss_records=2"}
+{"t": 146.212, "line": "  t= 134.2s  mode=online   session=052f1a34  saved=  96244  in_cloud=  95201  backlog= 1043  loss_records=2"}
+{"t": 148.11, "line": "  t= 136.1s  mode=online   session=052f1a34  saved=  97612  in_cloud=  96970  backlog=  642  loss_records=2"}
+{"t": 150.047, "line": "  t= 138.1s  mode=online   session=052f1a34  saved=  99052  in_cloud=  98413  backlog=  639  loss_records=2"}
+{"t": 151.957, "line": "  t= 140.0s  mode=online   session=052f1a34  saved= 100333  in_cloud=  99533  backlog=  800  loss_records=2"}
+{"t": 153.851, "line": "  t= 141.9s  mode=online   session=052f1a34  saved= 101776  in_cloud= 101136  backlog=  640  loss_records=2"}
+{"t": 155.737, "line": "  t= 143.8s  mode=online   session=052f1a34  saved= 103219  in_cloud= 102737  backlog=  482  loss_records=2"}
+{"t": 157.609, "line": "  t= 145.6s  mode=online   session=052f1a34  saved= 104659  in_cloud= 103859  backlog=  800  loss_records=2"}
+{"t": 159.511, "line": "  t= 147.5s  mode=online   session=052f1a34  saved= 105941  in_cloud= 105461  backlog=  480  loss_records=2"}
+{"t": 161.432, "line": "  t= 149.5s  mode=online   session=052f1a34  saved= 107384  in_cloud= 106582  backlog=  802  loss_records=2"}
+{"t": 163.349, "line": "  t= 151.4s  mode=online   session=052f1a34  saved= 108911  in_cloud= 108430  backlog=  481  loss_records=2"}
+{"t": 165.268, "line": "  t= 153.3s  mode=online   session=052f1a34  saved= 110354  in_cloud= 109873  backlog=  481  loss_records=2"}
+{"t": 167.153, "line": "  t= 155.2s  mode=online   session=052f1a34  saved= 111795  in_cloud= 110994  backlog=  801  loss_records=2"}
+{"t": 169.096, "line": "  t= 157.1s  mode=online   session=052f1a34  saved= 113237  in_cloud= 112917  backlog=  320  loss_records=2"}
+{"t": 170.972, "line": "  t= 159.0s  mode=online   session=052f1a34  saved= 114518  in_cloud= 113878  backlog=  640  loss_records=2"}
+{"t": 172.863, "line": "  t= 160.9s  mode=online   session=052f1a34  saved= 115964  in_cloud= 115482  backlog=  482  loss_records=2"}
+{"t": 174.784, "line": "  t= 162.8s  mode=online   session=052f1a34  saved= 117404  in_cloud= 116924  backlog=  480  loss_records=2"}
+{"t": 176.677, "line": "  t= 164.7s  mode=online   session=052f1a34  saved= 118847  in_cloud= 118045  backlog=  802  loss_records=2"}
+{"t": 178.577, "line": "  t= 166.6s  mode=online   session=052f1a34  saved= 120210  in_cloud= 119647  backlog=  563  loss_records=2"}
+{"t": 180.519, "line": "  t= 168.6s  mode=online   session=052f1a34  saved= 121655  in_cloud= 121173  backlog=  482  loss_records=2"}
+{"t": 182.424, "line": "  t= 170.5s  mode=online   session=052f1a34  saved= 123095  in_cloud= 122615  backlog=  480  loss_records=2"}
+{"t": 184.322, "line": "  t= 172.4s  mode=online   session=052f1a34  saved= 124377  in_cloud= 123736  backlog=  641  loss_records=2"}
+{"t": 186.197, "line": "  t= 174.2s  mode=online   session=052f1a34  saved= 125820  in_cloud= 125499  backlog=  321  loss_records=2"}
+{"t": 188.117, "line": "  t= 176.2s  mode=online   session=052f1a34  saved= 127352  in_cloud= 126461  backlog=  891  loss_records=2"}
+{"t": 190.069, "line": "  t= 178.1s  mode=online   session=052f1a34  saved= 128714  in_cloud= 128152  backlog=  562  loss_records=2"}
+{"t": 191.988, "line": "  t= 180.0s  mode=online   session=052f1a34  saved= 130154  in_cloud= 129675  backlog=  479  loss_records=2"}
+{"t": 193.899, "line": "  t= 181.9s  mode=online   session=052f1a34  saved= 131596  in_cloud= 131277  backlog=  319  loss_records=2"}
+{"t": 195.789, "line": "  t= 183.8s  mode=online   session=052f1a34  saved= 132884  in_cloud= 132238  backlog=  646  loss_records=2"}
+{"t": 197.706, "line": "  t= 185.7s  mode=online   session=052f1a34  saved= 134323  in_cloud= 133843  backlog=  480  loss_records=2"}
+{"t": 199.611, "line": "  t= 187.6s  mode=online   session=052f1a34  saved= 135765  in_cloud= 135445  backlog=  320  loss_records=2"}
+{"t": 201.52, "line": "  t= 189.6s  mode=online   session=052f1a34  saved= 137209  in_cloud= 136406  backlog=  803  loss_records=2"}
+{"t": 203.405, "line": "  t= 191.4s  mode=online   session=052f1a34  saved= 138737  in_cloud= 138174  backlog=  563  loss_records=2"}
+{"t": 205.346, "line": "  t= 193.4s  mode=online   session=052f1a34  saved= 140184  in_cloud= 139863  backlog=  321  loss_records=2"}
+{"t": 207.2, "line": "  t= 195.2s  mode=online   session=052f1a34  saved= 141465  in_cloud= 140826  backlog=  639  loss_records=2"}
+{"t": 209.095, "line": "  t= 197.1s  mode=online   session=052f1a34  saved= 142907  in_cloud= 142429  backlog=  478  loss_records=2"}
+{"t": 211.036, "line": "  t= 199.1s  mode=online   session=052f1a34  saved= 144350  in_cloud= 143948  backlog=  402  loss_records=2"}
+{"t": 212.925, "line": "  t= 201.0s  mode=online   session=052f1a34  saved= 145713  in_cloud= 145071  backlog=  642  loss_records=2"}
+{"t": 214.833, "line": "  t= 202.9s  mode=online   session=052f1a34  saved= 147154  in_cloud= 146674  backlog=  480  loss_records=2"}
+{"t": 216.723, "line": "  t= 204.8s  mode=online   session=052f1a34  saved= 148438  in_cloud= 147635  backlog=  803  loss_records=2"}
+{"t": 218.608, "line": "  t= 206.6s  mode=online   session=052f1a34  saved= 149878  in_cloud= 149237  backlog=  641  loss_records=2"}
+{"t": 220.53, "line": "  t= 208.6s  mode=online   session=052f1a34  saved= 151321  in_cloud= 150839  backlog=  482  loss_records=2"}
+{"t": 222.457, "line": "  t= 210.5s  mode=online   session=052f1a34  saved= 152762  in_cloud= 152281  backlog=  481  loss_records=2"}
+{"t": 224.329, "line": "  t= 212.4s  mode=online   session=052f1a34  saved= 154204  in_cloud= 153403  backlog=  801  loss_records=2"}
+{"t": 226.234, "line": "  t= 214.3s  mode=online   session=052f1a34  saved= 155486  in_cloud= 154845  backlog=  641  loss_records=2"}
+{"t": 228.134, "line": "  t= 216.2s  mode=online   session=052f1a34  saved= 156933  in_cloud= 155966  backlog=  967  loss_records=2"}
+{"t": 230.106, "line": "  t= 218.1s  mode=online   session=052f1a34  saved= 158373  in_cloud= 157253  backlog= 1120  loss_records=2"}
+{"t": 232.02, "line": "  t= 220.1s  mode=online   session=052f1a34  saved= 159816  in_cloud= 159337  backlog=  479  loss_records=2"}
+{"t": 233.94, "line": "  t= 222.0s  mode=online   session=052f1a34  saved= 161257  in_cloud= 160617  backlog=  640  loss_records=2"}
+{"t": 235.926, "line": "  t= 224.0s  mode=online   session=052f1a34  saved= 162700  in_cloud= 161898  backlog=  802  loss_records=2"}
+{"t": 237.856, "line": "  t= 225.9s  mode=online   session=052f1a34  saved= 164225  in_cloud= 163745  backlog=  480  loss_records=2"}
+{"t": 239.774, "line": "  t= 227.8s  mode=online   session=052f1a34  saved= 165669  in_cloud= 165349  backlog=  320  loss_records=2"}
+{"t": 241.678, "line": "  t= 229.7s  mode=online   session=052f1a34  saved= 167112  in_cloud= 166310  backlog=  802  loss_records=2"}
+{"t": 243.611, "line": "  t= 231.6s  mode=online   session=052f1a34  saved= 168552  in_cloud= 167912  backlog=  640  loss_records=2"}
+{"t": 245.525, "line": "  t= 233.6s  mode=online   session=052f1a34  saved= 169994  in_cloud= 169355  backlog=  639  loss_records=2"}
+{"t": 247.38, "line": "  t= 235.4s  mode=online   session=052f1a34  saved= 171202  in_cloud= 170879  backlog=  323  loss_records=2"}
+{"t": 249.284, "line": "  t= 237.3s  mode=online   session=052f1a34  saved= 172641  in_cloud= 171760  backlog=  881  loss_records=2"}
+{"t": 251.198, "line": "  t= 239.2s  mode=online   session=052f1a34  saved= 174083  in_cloud= 172961  backlog= 1122  loss_records=2"}
+{"t": 253.11, "line": "  t= 241.1s  mode=online   session=052f1a34  saved= 175530  in_cloud= 174564  backlog=  966  loss_records=2"}
+{"t": 254.999, "line": "  t= 243.0s  mode=online   session=052f1a34  saved= 176813  in_cloud= 175367  backlog= 1446  loss_records=2"}
+{"t": 256.876, "line": "  t= 244.9s  mode=online   session=052f1a34  saved= 178255  in_cloud= 177772  backlog=  483  loss_records=2"}
+{"t": 258.792, "line": "  t= 246.8s  mode=online   session=052f1a34  saved= 179695  in_cloud= 179375  backlog=  320  loss_records=2"}
+{"t": 260.765, "line": "  t= 248.8s  mode=online   session=052f1a34  saved= 181137  in_cloud= 180337  backlog=  800  loss_records=2"}
+{"t": 262.684, "line": "  t= 250.7s  mode=online   session=052f1a34  saved= 182669  in_cloud= 182024  backlog=  645  loss_records=2"}
+{"t": 264.601, "line": "  t= 252.6s  mode=online   session=052f1a34  saved= 184031  in_cloud= 183229  backlog=  802  loss_records=2"}
+{"t": 266.482, "line": "  t= 254.5s  mode=online   session=052f1a34  saved= 185472  in_cloud= 184350  backlog= 1122  loss_records=2"}
+{"t": 268.43, "line": "  t= 256.5s  mode=online   session=052f1a34  saved= 186996  in_cloud= 184991  backlog= 2005  loss_records=2"}
+{"t": 270.424, "line": "  t= 258.5s  mode=online   session=052f1a34  saved= 188440  in_cloud= 187797  backlog=  643  loss_records=2"}
+{"t": 272.358, "line": "  t= 260.4s  mode=online   session=052f1a34  saved= 189502  in_cloud= 188440  backlog= 1062  loss_records=2"}
+{"t": 274.281, "line": "  t= 262.3s  mode=online   session=052f1a34  saved= 189502  in_cloud= 189502  backlog=    0  loss_records=2"}
+{"t": 275.236, "line": ""}
+{"t": 275.237, "line": "=============================================================================="}
+{"t": 275.237, "line": "  8. VERIFY: device and cloud copies vs the mock's ground truth (every sample exactly once)"}
+{"t": 275.237, "line": "=============================================================================="}
+{"t": 288.828, "line": "  session a4b08aac device: exported= 69502 listed_lost=    0 silent_loss=0 duplicates=0 wrong=0 -> OK"}
+{"t": 304.714, "line": "  session a4b08aac cloud : exported= 69502 listed_lost=    0 silent_loss=0 duplicates=0 wrong=0 -> OK"}
+{"t": 319.419, "line": "  session 052f1a34 device: exported=120000 listed_lost=    0 silent_loss=0 duplicates=0 wrong=0 -> OK"}
+{"t": 344.379, "line": "  session 052f1a34 cloud : exported=120000 listed_lost=    0 silent_loss=0 duplicates=0 wrong=0 -> OK"}
+{"t": 348.38, "line": ""}
+{"t": 348.38, "line": "=============================================================================="}
+{"t": 348.38, "line": "  SUMMARY"}
+{"t": 348.38, "line": "  - Network cut: switched to offline, kept saving and processing on the device"}
+{"t": 348.38, "line": "  - Network back: switched to online, uploaded the backlog exactly once"}
+{"t": 348.38, "line": "  - kill -9 and power cut: restarted from disk; unreadable data listed as lost, never invented"}
+{"t": 348.38, "line": "  - Device and cloud copies checked against the mock's ground truth: OK means no silent loss,"}
+{"t": 348.38, "line": "    no duplicates, no wrong values"}
+{"t": 348.38, "line": "=============================================================================="}
